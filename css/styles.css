@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Monserrat';
+    src: url('../fonts/Montserrat-Regular.ttf');
+}
+
+:root {
+    --primary-color: #303a52;
+    --secondary-color: #bbbbbb;;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+    font-family: 'Monserrat';
+    color: var(--primary-color);
+}
+
+.d-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    padding: 40px
+}
+
+.row {
+    max-width: 400px;
+    margin: 20px auto; 
+    padding: 30px 40px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 5px 10px 0px #eeeeee;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tmp {
+    font-size: 70px;
+    letter-spacing: 5px;
+}
+
+#location {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+#current-icon {
+    width: 90px;
+    height: 90px;
+}
+
+.forecast {
+    padding: 40px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.w-hour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#w-maxtmp-hour {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+#w-mintmp-hour {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--secondary-color)
+}
+
+#w-icon {
+    width: 22px;
+    margin-bottom: 10px;
+}
+
+#w-clock-hour {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+#w-time-hour {
+    font-size: 12px;
+    color: var(--secondary-color);
+}
