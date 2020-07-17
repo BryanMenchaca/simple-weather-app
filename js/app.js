@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const baseURL = 'https://api.weatherapi.com/v1';
     // Generate a private API KEY with an account in https://www.weatherapi.com/
-    const apiKey = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+    const apiKey = '79d95c6c22e14117b7f42244202403';
 
     let tmp = document.querySelector('#tmp');
     let loc = document.querySelector('#location');
@@ -15,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const lng = myLocation.coords.longitude;
         const lat = myLocation.coords.latitude;
         
-        fetch(`${baseURL}/forecast.json?key=${apiKey}&q=${lat},${lng}&days=3&lang=es`)
-            .then(response => response.json())
-            .then(data => setWeatherInfo(data))
-            .catch(error => console.error(error));
+        axios.get(`${baseURL}/forecast.json?key=${apiKey}&q=${lat},${lng}&days=3&lang=es`)
+            .then(({data}) => setWeatherInfo(data));
     };
 
     const setWeatherInfo = ({location, current, forecast}) => {
