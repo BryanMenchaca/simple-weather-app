@@ -97,3 +97,17 @@ body {
     font-size: 12px;
     color: var(--secondary-color);
 }
+
+@media screen and (max-width: 440px) {
+    .row {
+        padding: 20px 25px;
+    }
+
+    #tmp {
+        font-size: 40px;
+    }
+
+    #location {
+        font-size: 12px;
+    }
+}
