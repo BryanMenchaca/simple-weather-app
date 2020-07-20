@@ -6,11 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generate a private API KEY with an account in https://www.weatherapi.com/
     const apiKey = '79d95c6c22e14117b7f42244202403';
 
-    let tmp = document.querySelector('#tmp');
-    let loc = document.querySelector('#location');
-    let currentIcon = document.querySelector('#current-icon');
-    let forecastDiv = document.querySelector('.forecast');
-
     const getWeatherInfo = (myLocation) => {
         const lng = myLocation.coords.longitude;
         const lat = myLocation.coords.latitude;
@@ -20,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const setWeatherInfo = ({location, current, forecast}) => {
-        tmp.innerHTML = `${current.temp_c}°`; // Set temp
-        loc.innerHTML = `${location.name}, ${location.region}`; // Set location name
-        currentIcon.src = current.condition.icon; // Set condition icon
+        document.querySelector('#tmp').innerHTML = `${current.temp_c}°`; // Set temp
+        document.querySelector('#location').innerHTML = `${location.name}, ${location.region}`; // Set location name
+        document.querySelector('#current-icon').src = current.condition.icon; // Set condition icon
 
         let mappedForecastDays = forecast.forecastday.map(element => {
             let nameDay = moment(element.date).format('dddd').substring(0,3);
@@ -40,7 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         });
 
-        forecastDiv.innerHTML = mappedForecastDays.join('\n');
+        document.querySelector('.forecast').innerHTML = mappedForecastDays.join('\n');
+
+        document.querySelector('#wind').innerHTML = `${current.wind_kph} km/h`
+        document.querySelector('#humidity').innerHTML = `${current.humidity} %`
+        document.querySelector('#visibility').innerHTML = `${current.vis_km} km`
     };
 
     // Get location and fetch data
